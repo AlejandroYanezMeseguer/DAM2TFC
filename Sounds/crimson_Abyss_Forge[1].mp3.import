@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/crimson_Abyss_Forge[1].mp3-56b03f5d5bd3df6110c8598ea4a73bb2.mp3str"
+
+[deps]
+
+source_file="res://Sounds/crimson_Abyss_Forge[1].mp3"
+dest_files=[ "res://.import/crimson_Abyss_Forge[1].mp3-56b03f5d5bd3df6110c8598ea4a73bb2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
