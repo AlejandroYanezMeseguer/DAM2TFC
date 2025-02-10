@@ -11,5 +11,5 @@ dest_files=[ "res://.import/PressButon.ogg-8e70386ea74f8cc2a10ff2984cf386fe.oggs
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

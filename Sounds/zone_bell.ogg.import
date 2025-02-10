@@ -11,5 +11,5 @@ dest_files=[ "res://.import/zone_bell.ogg-7637b8285dbe8190bda36219f9806a5c.oggst
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
