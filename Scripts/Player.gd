@@ -17,7 +17,7 @@ var collision_disabled = false
 var finalbossLives = 25
 var canDash = true
 var is_dashing = false
-var dash_speed = 460
+var dash_speed = 490
 var dash_duration = 0.055
 var dash_timer = 0
 var dash_cooldown = 1.5
@@ -87,6 +87,7 @@ func _ready():
 	initializeTimers()
 	
 func _physics_process(delta):
+	print($Area2D2/CollisionShape2D.position)
 	cooldownAttack = cooldownAttack
 	motion.y += gravity
 	finalBossScene()
@@ -259,6 +260,15 @@ func playerMovement(delta):
 	motion = move_and_slide(motion, up)
 	
 func hit(damage):
+	$Area2D2/CollisionShape2D.position.y = -1025
+	print("hit")
+	var timerInmune = Timer.new()
+	timerInmune.wait_time = 1
+	timerInmune.one_shot = true
+	add_child(timerInmune)
+	timerInmune.connect("timeout", self, "_on_hit_inmune")
+	timerInmune.start()
+	frameFreeze(0.05,0.4)
 	motion.x = 0
 	if !attack:
 		PlayerLives -= damage
@@ -278,13 +288,16 @@ func hit(damage):
 	shake_camera()
 	HitPlayer = true
 	if !sprite.flip_h:
-		motion = Vector2(-100,-250)
+		motion = Vector2(-150,-350)
 	else:
-		motion = Vector2(100,-250)
+		motion = Vector2(150,-350)
 	sprite.play("hurt")
 	
 func _on_hit_timeout():
 	$AnimatedSprite.modulate = Color(1, 1, 1, 1)
+	
+func _on_hit_inmune():
+	$Area2D2/CollisionShape2D.position.y = 2
 	
 func updateCooldown(newCool):
 	cooldownAttack = newCool
@@ -312,6 +325,10 @@ func _on_animation_finished():
 		door.position.y = -165
 		finalBoss.respawn()
 		finalbossLives = 25
+		$Area2D2/CollisionShape2D.position.y = 2
+		$Area2D2/CollisionShape2D.scale.y = 1
+		moveSpeed = 47
+		idle = true
 		
 	if sprite.animation == "attack" or sprite.animation == "attack 1":
 		$Area2D/CollisionShape2D.disabled = true
@@ -363,10 +380,6 @@ func revive(body):
 		deadtp.start()
 		PlayerLives = 4
 		deadeff.play("default")
-		$Area2D2/CollisionShape2D.position.y = 2
-		$Area2D2/CollisionShape2D.scale.y = 1
-		moveSpeed = 47
-		idle = true
 		
 func _on_deadZone_body_entered(body):
 	revive(body)
@@ -441,3 +454,8 @@ func _on_Area2D10_body_entered(body):
 	if body.name == "Player":
 		FinalBoss.play()
 		finalbossMusic = true
+		
+func frameFreeze(timeScale,duration):
+	Engine.time_scale = timeScale
+	yield(get_tree().create_timer(duration * timeScale),"timeout")
+	Engine.time_scale = 1
