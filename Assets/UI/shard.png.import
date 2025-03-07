@@ -2,25 +2,25 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/coin_collect.png-efd61ece6a1561e51941a0a583264f74.stex"
+path="res://.import/shard.png-8a97d691a47dc03e1c88e3e12f12a9cb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/FX/coin_collect.png"
-dest_files=[ "res://.import/coin_collect.png-efd61ece6a1561e51941a0a583264f74.stex" ]
+source_file="res://Assets/UI/shard.png"
+dest_files=[ "res://.import/shard.png-8a97d691a47dc03e1c88e3e12f12a9cb.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
