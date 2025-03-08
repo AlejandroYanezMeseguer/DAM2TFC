@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/OptionsPauseMenu.png-08500778895d13e2fc1b93e60dc15650.stex"
+path="res://.import/Q.png-d45161341527e01ffeeb48813777dcb5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/OptionsPauseMenu.png"
-dest_files=[ "res://.import/OptionsPauseMenu.png-08500778895d13e2fc1b93e60dc15650.stex" ]
+source_file="res://Assets/controls/Q.png"
+dest_files=[ "res://.import/Q.png-d45161341527e01ffeeb48813777dcb5.stex" ]
 
 [params]
 
